@@ -12,6 +12,7 @@
     <title>Dojo Survey!</title>
 </head>
 <body>
+    
     <div class="container">
         <div class="content flex">
             <h1>Dojo Survey!</h1>
@@ -19,6 +20,13 @@
                 <div class="form-item">
                     <label for='name'>Name:</label>
                     <input type='text' name='name' id="name">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p style="color: red">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 </div>
                 <div class="form-item">
                     <label for='location'>Location:</label>
@@ -46,6 +54,5 @@
             </form>
         </div>
     </div>
-    <script src="{{ url_for('static',filename="../static/js/script.js") }}"></script>
 </body>
 </html>
